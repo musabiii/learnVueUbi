@@ -23,7 +23,7 @@ export default {
         title: "",
         body: "",
       },
-        testInput: "",
+      testInput: "",
     };
   },
   methods: {
@@ -37,8 +37,16 @@ export default {
     },
 
     testUpdate(a) {
-      console.log(a)
+      console.log(a);
       this.testInput = a;
+    },
+  },
+  watch: {
+    post: {
+      handler(newVal) {
+        // console.log(newVal);
+      },
+      deep:true
     },
   },
 };

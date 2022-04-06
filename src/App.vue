@@ -1,38 +1,14 @@
 <template>
+    <navbar/>
   <div class="app">
-    <post-form @create="createPost" />
-    <post-list @remove = "removePost" :posts="posts" />
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import PostForm from "@/components/PostForm.vue";
-import PostList from "@/components/PostList.vue";
+import Navbar from './pages/Navbar.vue';
 export default {
-  components: {
-    PostForm,
-    PostList,
-  },
-  data() {
-    return {
-      posts: [
-        { id: 1, title: "js", body: "describe" },
-        { id: 2, title: "js 2", body: "describe 2" },
-        { id: 3, title: "js 3", body: "describe 3" },
-      ],
-      title: "",
-      body: "",
-    };
-  },
-  methods: {
-    createPost(post, second, third) {
-      this.posts.push(post);
-    },
-    removePost(post) {
-      this.posts = this.posts.filter((el) => el.id !== post.id);
-    },
-  },
-};
+  components: { Navbar },};
 </script>
 
 <style>
@@ -40,5 +16,30 @@ export default {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+.app__btns {
+  display: flex;
+  justify-content: space-between;
+}
+
+.page__wrapper {
+  display: flex;
+  margin-top: 15px;
+  justify-content: center;
+}
+.page {
+  padding: 5px;
+  border: solid 1px #eee;
+  margin: 0 5px;
+}
+
+.page__active {
+  background-color: teal;
+  color: #fff;
+}
+.observer {
+  height: 30px;
+  background-color: green;
 }
 </style>
